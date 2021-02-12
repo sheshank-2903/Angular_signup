@@ -1,20 +1,20 @@
 <div class="login-page">
   <mat-card class="mat-elevation-z12">
-    <mat-card-title style="text-align:center;">SignIn/SignUp</mat-card-title>
-    <mat-tab-group mat-stretch-tabs class="example-stretched-tabs">
+    <mat-card-title style="text-align:center;">Welcome To My Assignment</mat-card-title>
+    <mat-tab-group mat-stretch-tabs class="example-stretched-tabs" >
       <mat-tab label="Sign In">
           <mat-card-content>
             <form action="">
               <mat-form-field>
                 <input
                   matInput
-                  placeholder="Email"
+                  placeholder="Username"
                   required
-                  name="email"
+                  name="username"
                   ngModel
-                  #email="ngModel">
-                  <mat-error *ngIf="email.invalid">Email is required</mat-error>
-                <mat-icon matSuffix>email</mat-icon>
+                  #username="ngModel">
+                  <mat-error *ngIf="username.invalid">Username is required</mat-error>
+                  <mat-icon matSuffix>perm_identity</mat-icon>
               </mat-form-field>
               <mat-form-field>
                 <input
@@ -49,12 +49,40 @@
                 class="login-button">
                 Login with Google
               </button>
+              
             </form>
           </mat-card-content>
       </mat-tab>
       <mat-tab label="Sign Up">
-        <mat-card-content>
+        <mat-card-content >
           <form action="">
+            <mat-form-field>
+              <input
+                matInput
+                placeholder="First Name"
+                required
+                name="first name"
+                ngModel
+                #FirstName="ngModel">
+              <mat-icon matSuffix>perm_identity</mat-icon>
+              <mat-error
+                *ngIf="FirstName.invalid ">
+                First Name is required
+              </mat-error>
+            </mat-form-field>
+            <mat-form-field>
+              <input
+                matInput
+                placeholder="Last Name"
+                name="last name"
+                ngModel
+                #lastName="ngModel">
+              <mat-icon matSuffix>perm_identity</mat-icon>
+              <mat-error
+                *ngIf="lastName.invalid">
+                LastName is invalid
+              </mat-error>
+            </mat-form-field>
             <mat-form-field>
               <input
                 matInput
@@ -68,19 +96,38 @@
                 *ngIf="username.invalid">
                 Username is required
               </mat-error>
-
             </mat-form-field>
             <mat-form-field>
               <input
-                matInput
-                placeholder="Email"
-                required
-                name="email"
-                ngModel
-                #email="ngModel">
-                <mat-error *ngIf="email.invalid">Email is required</mat-error>
-              <mat-icon matSuffix>email</mat-icon>
-            </mat-form-field>
+              matInput
+              placeholder="Your Date Of Birth (We like to send cake  alot)"
+              type="date"
+              required
+              name="date-of-birth"
+              ngModel
+              #date="ngModel">
+              <mat-error
+                *ngIf="date.errors && date.errors.required">
+                Date of birth need to be selected
+              </mat-error>
+          </mat-form-field>
+
+          <mat-form-field>
+            <input
+            matInput
+            placeholder="your country"
+            type="text"
+            required
+            name="country"
+            ngModel
+            #country="ngModel">
+            <mat-error
+              *ngIf="country.errors && country.errors.required">
+              country need to to given
+            </mat-error>
+          <mat-icon matSuffix>placeholder</mat-icon>
+        </mat-form-field>
+
             <mat-form-field>
               <input
                 matInput
@@ -101,22 +148,6 @@
                 </mat-error>
               <mat-icon matSuffix>lock</mat-icon>
 
-            </mat-form-field>
-            <mat-form-field>
-                <input
-                matInput
-                placeholder="Password"
-                type="password"
-                required
-                minlength="6"
-                name="repassword"
-                ngModel
-                #repassword="ngModel">
-                <mat-error
-                  *ngIf="repassword.errors && repassword.errors.required">
-                  Re-Enter Password is required
-                </mat-error>
-              <mat-icon matSuffix>lock</mat-icon>
             </mat-form-field>
             <button
               mat-raised-button
